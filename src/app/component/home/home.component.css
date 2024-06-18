@@ -1,0 +1,22 @@
+.fondo {
+    background-image: url("../../../assets/webdesign.jpg"), linear-gradient(to top, transparent, white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin-top: -20vh;
+    margin-bottom: 2vh;
+}
+
+.programer {
+    border-radius: 50%;
+    height: 24vh;
+    width: 24vh;
+    margin: auto;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

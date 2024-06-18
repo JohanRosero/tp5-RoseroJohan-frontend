@@ -1,0 +1,47 @@
+<div class="container-fluid m-2 fondo">
+    <div class="row container-fluid m-0 w-100 h-50">
+        <div class="col-sm-3 p-5 text-center">
+            <h3>Ver historial de transacciones</h3>
+            <a [routerLink]="['/transacciones']" routerLinkActive="router-link-active"><button type="button"
+                    class="btn btn-outline-primary">
+                    Historial
+                </button>
+            </a>
+
+        </div>
+
+        <form [formGroup]="currencyForm" (ngSubmit)="onSubmit()" class="container-fluid col formDivisas">
+
+            <div class="mb-3">
+                <label for="amount">Cantidad</label>
+                <input type="number" class="form-control" id="amount" formControlName="amount"
+                    placeholder="Ingresa la cantidad">
+            </div>
+            <div class="mb-3">
+                <label for="from">De:</label>
+                <select class="form-select" id="from" formControlName="from">
+                    <option selected value="">Selecciona la divisa</option>
+                    <option *ngFor="let item of opciones" [value]="item.symbol">{{item.name}}</option>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="to">A:</label>
+                <select class="form-select" formControlName="to" id="to">
+                    <option selected value="">Selecciona la divisa</option>
+                    <option *ngFor="let item of opciones" [value]="item.symbol">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <input type="number" class="form-control" id="cantidadDestino"  disabled
+                    [value]="cantidadDestino">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning btn-sm m-3" [disabled]="currencyForm.invalid">Convertir
+                </button>
+            </div>
+        </form>
+
+        <div class="col-sm-3"></div>
+    </div>
+</div>

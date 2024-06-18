@@ -1,0 +1,73 @@
+<div class="container-fluid m-2 fondo">
+    <div class="row container-fluid m-0 w-100 ">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="row container-fluid m-0 w-100 ">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10 text-center p-3">
+                    <h4>Historial de Transacciones</h4>
+                    <form class="container-fluid col formDivisas row">
+                        <div class="col ">
+                            <div class="text-center container">
+                                <h5>Seleccione como Filtrar</h5>
+                                <button type="button" class="btn btn-outline-primary m-2" (click)="filterByOriginDestiny()">
+                                    filtrar
+                                </button>
+                                <button type="button" class="btn btn-outline-primary m-2" (click)="getTransactions()">
+                                    todos
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col">
+                            <label for="from">Moneda Origen</label>
+                            <select class="form-select" id="from" [(ngModel)]="origen" name="monedaOrigen">
+                                <option selected value="">Selecciona la divisa</option>
+                                <option *ngFor="let item of opciones" [value]="item.symbol">{{item.name}}
+                                    ({{item.symbol}})</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3 col">
+                            <label for="to">Moneda Destino</label>
+                            <select class="form-select" id="to" [(ngModel)]="destino" name="monedaDestino">
+                                <option selected value="">Selecciona la divisa</option>
+                                <option *ngFor="let item of opciones" [value]="item.symbol">{{item.name}}
+                                    ({{item.symbol}})</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row container-fluid m-0 w-100 ">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-10 text-center p-3 ">
+            <ol class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-start row fw-bold">
+                    <div class="col">DE:</div>
+                    <div class="col">A:</div>
+                    <div class="col">Tasa:</div>
+                    <div class="col">email:</div>
+                    <div class="col">Can.Origen:</div>
+                    <div class="col">Can.Destino:</div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start row"
+                    *ngFor="let item of transactions">
+                    <div class="col">{{item.monedaOrigen}}</div>
+                    <div class="col">{{item.monedaDestino}}</div>
+                    <div class="col">{{item.tasaConversion}}</div>
+                    <div class="col">{{item.emailCliente}}</div>
+                    <div class="col">{{item.cantidadOrigen}}</div>
+                    <div class="col">{{item.cantidadDestino}}</div>
+
+                </li>
+            </ol>
+        </div>
+
+        <div class="col-sm-1"></div>
+    </div>
+</div>

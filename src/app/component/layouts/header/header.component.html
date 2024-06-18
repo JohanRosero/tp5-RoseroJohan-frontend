@@ -1,0 +1,29 @@
+<header class="container-fluid shadow-sm ">
+    <div class="row">
+        <nav class="navbar bg-body-tertiary color">
+            <div class="container">
+                <a class="navbar-brand" [routerLink]="['/home']"
+                    routerLinkActive="router-link-active"><strong>TP5-Frontend-Backend</strong></a>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid row">
+        <div class="col">
+
+            <ul class="nav justify-content-center nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/home']" routerLinkActive="router-link-active"  href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" >Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/divisas']" routerLinkActive="router-link-active" >Divisas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Punto-Tres</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

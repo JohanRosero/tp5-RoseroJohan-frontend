@@ -1,0 +1,75 @@
+<div class="container-fluid m-2 fondo">
+    <div class="row container-fluid m-0 w-100 h-50">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6 card p-3">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" formControlName="nombre">
+                    <!-- Add error messages here -->
+                    <p *ngIf="productForm.controls.nombre.errors?.['required'] && productForm.controls.nombre.touched"
+                        class="validacion">
+                       * El nombre es requerido.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+                    <!-- Add error messages here -->
+                    <p *ngIf="productForm.controls.descripcion.errors?.['required'] && productForm.controls.descripcion.touched"
+                    class="validacion">
+                   * Se debe ingresar la descripción del producto.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagen">Imagen URL</label>
+                    <input type="text" id="imagen" class="form-control" formControlName="imagen">
+                    <!-- Add error messages here -->
+                    <p *ngIf="productForm.controls.imagen.errors?.['required'] && productForm.controls.imagen.touched"
+                    class="validacion">
+                   * Se debe ingresar la Url de una imagen.</p>
+                    <p *ngIf="productForm.controls.imagen.errors?.['pattern'] && productForm.controls.imagen.touched"
+                    class="validacion">
+                   * Se debe ingresar una Url válida.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" class="form-control" formControlName="precio">
+                    <!-- Add error messages here -->
+                    <p *ngIf="productForm.controls.precio.errors?.['required']  && productForm.controls.precio.touched"
+                    class="validacion">
+                   * Se debe ingresar el precio del producto.</p>
+                    <p *ngIf="productForm.controls.precio.errors?.['min'] && productForm.controls.precio.touched"
+                    class="validacion">
+                   * El precio no puede ser 0.</p>                          
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" class="form-control" formControlName="stock">
+                    <!-- Add error messages here -->
+                    <p *ngIf="productForm.controls.stock.errors?.['required'] && productForm.controls.stock.touched"
+                    class="validacion">
+                   * Se debe ingresar stock.</p>
+                    <p *ngIf="productForm.controls.stock.errors?.['min'] && productForm.controls.stock.touched"
+                    class="validacion">
+                   * La cantidad minima de stock es 1.</p> 
+                </div>
+
+                <div class="form-check pt-3">
+                    <input type="checkbox" id="destacado" class="form-check-input" formControlName="destacado">
+                    <label for="destacado">Destacado</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm m-3" [disabled]="productForm.invalid">Enviar Producto</button>
+                <button type="submit" class="btn btn-danger btn-sm m-3" [routerLink]="['/products']" routerLinkActive="router-link-active" >Cancelar</button>
+            </form>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>

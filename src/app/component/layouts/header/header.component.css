@@ -1,0 +1,16 @@
+.color {
+    background: -webkit-linear-gradient(117deg, #053778, #0e77f8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(117deg, #053778, #328cfa);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+strong {
+    color: #f2f4f8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+img:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    cursor: pointer;    
+}
