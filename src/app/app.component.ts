@@ -6,6 +6,8 @@ import { HomeComponent } from './component/home/home.component';
 import { ProductComponent } from './component/product/product.component';
 import { CurrencyComponent } from './component/currency/currency.component';
 import { TransactionComponent } from './component/transaction/transaction.component';
+import { TicketComponent } from './component/ticket/ticket.component';
+import { FormTikcketComponent } from './component/form-tikcket/form-tikcket.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,9 @@ import { TransactionComponent } from './component/transaction/transaction.compon
     HomeComponent,
     ProductComponent,
     CurrencyComponent,
-    TransactionComponent
+    TransactionComponent,
+    TicketComponent,
+    FormTikcketComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

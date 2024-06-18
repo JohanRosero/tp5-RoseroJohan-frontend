@@ -1,0 +1,59 @@
+<div class="container-fluid teatro">
+
+    <div class="row">
+        <div class="col ">
+            <div class="container p-3">
+                <div class="card form-ticket">
+                    <h5 class="card-header">Formulario de <strong *ngIf="accion==='edit'">Modificación</strong><strong
+                            *ngIf="accion==='add'">Registro</strong></h5>
+                    <div class="card-body">
+                        <form [formGroup]="ticketForm">
+                            <div class="row mb-3">
+                                <label for="precio" class="col-sm-3 col-form-label">Precio</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" name="precio" id="precio" formControlName="precioTicket">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="categoria" class="col-sm-3 col-form-label">categoria
+                                    Espectador</label>
+                                <div class="col-sm-9">
+                                    <select id="categoria" formControlName="categoriaEspectador" name="categoria"
+                                        class="form-control">
+                                        <option selected value="">Selecciona ...</option>
+                                        <option value="l">Local</option>
+                                        <option value="e">Extranjero</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="espectador" class="col-sm-3 col-form-label">
+                                    Espectador</label>
+                                <div class="col-sm-9">
+                                    <select id="espectador" formControlName="espectador" name="espectador"
+                                        class="form-control">
+                                        <option selected value="">Selecciona ...</option>
+                                        <option *ngFor="let item of espectadores" [value]="item._id">{{item.nombre}} {{item.apellido}}
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="fecha" class="col-sm-3 col-form-label">Fecha</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="fecha" id="fecha" formControlName="fechaCompra">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-success" *ngIf="accion==='add'" (click)="createTicket()"
+                                >Registrar</button>
+                            <button type="submit" class="btn btn-outline-primary" *ngIf="accion==='edit'"
+                                >Modificar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

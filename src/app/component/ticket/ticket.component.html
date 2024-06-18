@@ -1,0 +1,65 @@
+<div class="container-fluid ventas fondo">
+
+    <div class="row">
+        <div class="container-fluid pb-3 col">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li class="nav-item m-1">
+                                <button type="button" class="btn btn-primary btn-md" [routerLink]="['/formTicket']" routerLinkActive="router-link-active" 
+                                    routerLinkActive="router-link-active">Registrar Nuevo</button>
+                            <li class="nav-item m-1">
+                                <div class="btn-group btn-group-md" role="group" aria-label="Small button group">
+                                    <button type="button" class="btn btn-outline-primary" (click)="getTicketsByCategory('l')">Local</button>
+                                    <button type="button" class="btn btn-outline-primary" (click)="getTicketsByCategory('e')">Extranjero</button>
+                                    <button type="button" class="btn btn-outline-primary" (click)="getTickets()">todos</button>
+                                </div>
+                            </li>
+                            <li class="nav-item m-1">
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" aria-label="Search" disabled value="Total Ventas">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <table class="table table-striped table-sm text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Tipo de Espectador</th>
+                        <th scope="col">Espectador</th>
+                        <th scope="col">Precio Cobrado</th>
+                        <th scope="col">Fecha de Cobro</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of auxiliar">
+                        <th scope="row">{{item._id}}</th>
+                        <td>{{item.categoriaEspectador}}</td>
+                        <td>{{item.espectador.nombre}} {{item.espectador.apellido}}</td>
+                        <td>{{item.precioTicket}}</td>
+                        <td>{{item.fechaCompra|date}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-primary">Modificar</button>
+                                <button type="button" class="btn btn-outline-primary">Eliminar</button>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
