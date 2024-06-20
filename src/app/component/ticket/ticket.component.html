@@ -13,13 +13,17 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                             <li class="nav-item m-1">
-                                <button type="button" class="btn btn-primary btn-md" [routerLink]="['/formTicket']" routerLinkActive="router-link-active" 
+                                <button type="button" class="btn btn-primary btn-md" [routerLink]="['/formTicket']"
+                                    routerLinkActive="router-link-active"
                                     routerLinkActive="router-link-active">Registrar Nuevo</button>
                             <li class="nav-item m-1">
                                 <div class="btn-group btn-group-md" role="group" aria-label="Small button group">
-                                    <button type="button" class="btn btn-outline-primary" (click)="getTicketsByCategory('l')">Local</button>
-                                    <button type="button" class="btn btn-outline-primary" (click)="getTicketsByCategory('e')">Extranjero</button>
-                                    <button type="button" class="btn btn-outline-primary" (click)="getTickets()">todos</button>
+                                    <button type="button" class="btn btn-outline-primary"
+                                        (click)="getTicketsByCategory('l')">Local</button>
+                                    <button type="button" class="btn btn-outline-primary"
+                                        (click)="getTicketsByCategory('e')">Extranjero</button>
+                                    <button type="button" class="btn btn-outline-primary"
+                                        (click)="getTickets()">todos</button>
                                 </div>
                             </li>
                             <li class="nav-item m-1">
@@ -39,27 +43,39 @@
                         <th scope="col">Espectador</th>
                         <th scope="col">Precio Cobrado</th>
                         <th scope="col">Fecha de Cobro</th>
+                        <th scope="col">nuevo Categoria</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of auxiliar">
-                        <th scope="row">{{item._id}}</th>
-                        <td>{{item.categoriaEspectador}}</td>
-                        <td>{{item.espectador.nombre}} {{item.espectador.apellido}}</td>
-                        <td>{{item.precioTicket}}</td>
-                        <td>{{item.fechaCompra|date}}</td>
+                        <th scope="row">{{ item._id }}</th>
+                        <td>{{ item.categoriaEspectador }}</td>
+                        <td>
+                            <!-- Verifica si 'item.espectador' está definido antes de acceder a sus propiedades -->
+                            <ng-container *ngIf="item.espectador">
+                                {{ item.espectador.nombre }} {{ item.espectador.apellido }}
+                            </ng-container>
+                        </td>
+                        <td>{{ item.precioTicket }}</td>
+                        <td>{{ item.fechaCompra | date }}</td>
+                        <td>
+                            <!-- Verifica si 'item.tipoCategoria' está definido antes de acceder a sus propiedades -->
+                            <ng-container *ngIf="item.tipoCategoria">
+                                {{ item.tipoCategoria.nombre }}
+                            </ng-container>
+                        </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
                                 <button type="button" class="btn btn-outline-primary">Modificar</button>
-                                <button type="button" class="btn btn-outline-primary">Eliminar</button>
+                                <button type="button" class="btn btn-outline-primary"
+                                    (click)="deleteTicket(item._id)">Eliminar</button>
                             </div>
-
                         </td>
                     </tr>
-
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

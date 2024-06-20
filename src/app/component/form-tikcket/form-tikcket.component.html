@@ -40,6 +40,19 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="tipoCategoria" class="col-sm-3 col-form-label">
+                                    tipo Categoria(nuevo)</label>
+                                <div class="col-sm-9">
+                                    <select id="tipoCategoria" formControlName="tipoCategoria" name="tipoCategoria"
+                                        class="form-control">
+                                        <option selected value="">Selecciona ...</option>
+                                        <option *ngFor="let item of categorias" [value]="item._id">{{item.nombre}}
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="fecha" class="col-sm-3 col-form-label">Fecha</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="fecha" id="fecha" formControlName="fechaCompra">
